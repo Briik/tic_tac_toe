@@ -44,7 +44,11 @@ function TheGame(){
   var squareArray = $(".square");
   // var winner;
   var startingPosition = 0;
-  var rowOneStart = squareArray[startingPosition].textContent
+  var rowOneStart = squareArray[startingPosition].textContent;
+  var startingPositionRow2 = startingPosition + 3;
+  var rowTwoStart = squareArray[startingPositionRow2].textContent;
+  var startingPositionRow3 = startingPositionRow2 + 3;
+  var rowThreeStart = squareArray[startingPositionRow3].textContent;
   // var styleOfSquare = squareArray[startingPosition].attributes.style;
   // var addThisForColor = '.textContent.substr(20, 4)';
   // var colorOfstartingPosition = styleOfSquare.textContent.substr(20, 4);
@@ -53,6 +57,14 @@ function TheGame(){
   // if ((colorOfstartingPosition === true) && (colorOfstartingPosition === squareArray[startingPosition + 1].attributes.style.textContent.substr(20, 4)) && (colorOfstartingPosition === squareArray[startingPosition + 2].attributes.style.textContent.substr(20, 4))) {
   if ((rowOneStart === squareArray[startingPosition + 1].textContent) && (rowOneStart === squareArray[startingPosition + 2].textContent)) {
     alert("Player " + rowOneStart + " wins!");
+    console.log("The game is complete");
+  };
+  if ((rowTwoStart === squareArray[startingPositionRow2 + 1].textContent) && (rowTwoStart === squareArray[startingPositionRow2 + 2].textContent)) {
+    alert("Player " + rowTwoStart + " wins!");
+    console.log("The game is complete");
+  };
+  if ((rowThreeStart === squareArray[startingPositionRow3 + 1].textContent) && (rowThreeStart === squareArray[startingPositionRow3 + 2].textContent)) {
+    alert("Player " + rowThreeStart + " wins!");
     console.log("The game is complete");
   };
   //Add this function later!
