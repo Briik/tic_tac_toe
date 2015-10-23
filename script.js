@@ -42,12 +42,13 @@ $(document).ready(function() {
     console.log("The game is complete");
     numWins++;
     console.log("numWins: " + numWins);
-    setTimeout(function () {
+    setTimeout(function() {
       window.location.reload();
     }, 5000);
     $("#rules").html("Resetting in 5 seconds...");
     return numWins++;
-};
+  };
+
   function TheGame() {
     console.log("The game is running");
     var squareArray = $(".square");
@@ -95,7 +96,7 @@ $(document).ready(function() {
       logWin();
     };
   }
-  function randomMove(){
-
-  }
+  // function randomMove(){
+  //
+  // }
 });
