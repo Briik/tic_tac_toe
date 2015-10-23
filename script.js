@@ -34,25 +34,20 @@ $(document).ready(function() {
       $("#rules").html("Current player: O");
     };
     TheGame();
-    resetGame();
   });
   var numWins = 0;
-  var Xwins = 0;
-  var YWins = 0;
+  // var Xwins = 0;
+  // var YWins = 0;
   function logWin() {
     console.log("The game is complete");
     numWins++;
     console.log("numWins: " + numWins);
-  };
-function resetGame(){
-  if (numWins = 1) {
     setTimeout(function () {
       window.location.reload();
-    }, 6000);
-  } else {
-    return;
-  }
-}
+    }, 5000);
+    $("#rules").html("Resetting in 5 seconds...");
+    return numWins++;
+};
   function TheGame() {
     console.log("The game is running");
     var squareArray = $(".square");
@@ -99,5 +94,8 @@ function resetGame(){
       alert("Player " + colomnThreeStart + " wins!");
       logWin();
     };
+  }
+  function randomMove(){
+
   }
 });
