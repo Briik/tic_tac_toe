@@ -10,7 +10,7 @@ $(document).ready(function() {
   };
   var squareArray = $(".square");
   squareArray.css("margin", "4px");
-  var clickCounter = 0;
+  var clickCounter = null;
   $(".square").on("click", function(evt) {
     evt.preventDefault();
     clickCounter = clickCounter + 1;
@@ -26,8 +26,9 @@ $(document).ready(function() {
       clickCounter = 0;
     };
     if (clickCounter === 0) {
-      $(this).html(placeholder);
-      $(this).css("color", "white");
+      clickCounter = 1;
+      $(this).html("X");
+      $(this).css("color", "red");
     };
     TheGame();
   });
@@ -41,6 +42,9 @@ $(document).ready(function() {
     var rowTwoStart = squareArray[startingPositionRow2].textContent;
     var startingPositionRow3 = startingPositionRow2 + 3;
     var rowThreeStart = squareArray[startingPositionRow3].textContent;
+    var colomnTwoStart = squareArray[1].textContent;
+    var colomnThreeStart = squareArray[2].textContent;
+    //Starting with Rows...
     if ((rowOneStart != placeholder) && (rowOneStart === squareArray[startingPosition + 1].textContent) && (rowOneStart === squareArray[startingPosition + 2].textContent)) {
       alert("Player " + rowOneStart + " wins!");
       console.log("The game is complete");
@@ -53,5 +57,19 @@ $(document).ready(function() {
       alert("Player " + rowThreeStart + " wins!");
       console.log("The game is complete");
     };
+    //Now starting Colomns...
+    if ((rowOneStart != placeholder) && (rowOneStart === rowTwoStart) && (rowOneStart === rowThreeStart)) {
+      alert("Player " + rowOneStart + " wins!");
+      console.log("The game is complete");
+    };
+    if ((colomnTwoStart != placeholder) && (colomnTwoStart === squareArray[startingPositionRow2 + 1].textContent) && (colomnTwoStart === squareArray[startingPositionRow3 + 1].textContent)) {
+      alert("Player " + colomnTwoStart + " wins!");
+      console.log("The game is complete");
+    };
+    if ((colomnThreeStart != placeholder) && (colomnThreeStart === squareArray[startingPositionRow2 + 2].textContent) && (colomnThreeStart === squareArray[startingPositionRow3 + 2].textContent)) {
+      alert("Player " + colomnThreeStart + " wins!");
+      console.log("The game is complete");
+    };
+    //Now the Diagonals...
   }
 });
