@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  console.log("jQuery working");
+  console.log("jQuery working...");
 
   for (var i = 0; i < 9; i++) {
     $("#rules").after($('<div />', {
@@ -27,25 +27,35 @@ $(document).ready(function() {
     };
     if (clickCounter === 0) {
       $(this).html("?");
+      $(this).css("color", "white");
     };
+    TheGame();
   });
+
+function TheGame(){
 //
 //
 //THE GAME
 //$(".square")[i].attributes.style --> "margin:​ 4px;​ color:​ blue;​"
 //or "red;" instead of "blue"
+//
+//The square text has no style color before being clicked.
+  console.log("The game is running");
   var squareArray = $(".square");
-  var winner;
+  // var winner;
   var startingPosition = 0;
-  var styleOfSquare = squareArray[startingPosition].attributes.style;
-  var addThisForColor = "textContent.substr(20, 4)";
-  var colorOfstartingPosition = styleOfSquare.textContent.substr(20, 4);
+  var rowOneStart = squareArray[startingPosition].textContent
+  // var styleOfSquare = squareArray[startingPosition].attributes.style;
+  // var addThisForColor = '.textContent.substr(20, 4)';
+  // var colorOfstartingPosition = styleOfSquare.textContent.substr(20, 4);
   // var nextToStartingPosition = styleOfSquare.textContent.substr(14, 16) = (startingPosition + 1);
 // Row 1
-  if ((colorOfstartingPosition === squareArray[startingPosition + 1].attributes.style.addThisForColor) && (colorOfstartingPosition === squareArray[startingPosition + 2].attributes.style.addThisForColor)) {
-    alert("Player " + squareArray[startingPosition].html + " wins!");
-  }
-
+  // if ((colorOfstartingPosition === true) && (colorOfstartingPosition === squareArray[startingPosition + 1].attributes.style.textContent.substr(20, 4)) && (colorOfstartingPosition === squareArray[startingPosition + 2].attributes.style.textContent.substr(20, 4))) {
+  if ((rowOneStart === squareArray[startingPosition + 1].textContent) && (rowOneStart === squareArray[startingPosition + 2].textContent)) {
+    alert("Player " + rowOneStart + " wins!");
+    console.log("The game is complete");
+  };
   //Add this function later!
   //$("#winnerDisplay").html("The winner is " + winner + "!");
+}
 });
